@@ -1,38 +1,146 @@
+* {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #371888;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ToDo {
+  background: #700fdf;
+  margin-top: 3rem;
+  padding: 2rem;
+  border-radius: 5px;
+  max-height: 550px;
+  overflow: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.fromsTaskM {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.formTaskInput {
+  outline: none;
+  background: none;
+  border: 1px solid #b364f5;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 300px;
+  color: #fff;
+}
+
+.formTaskInput::placeholder {
+  color: #fffffff0;
+}
+
+.addTaskButton {
+  background: #b364f5;
+  color: #fff;
+  border: none;
+  padding: 0.55rem;
+  cursor: pointer;
+}
+.deleteAllButton, .deleteDoneButton {
+  background: #b364f5;
+  color: #fff;
+  border: none;
+  padding: 0.55rem;
+  cursor: pointer;
+}
+
+
+.TaskManager {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: #b364f5;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.TaskManager input[type="checkbox"] {
+  width: 15px; 
+  height: 15px;  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.done {
+  text-decoration: line-through;
+}
+
+.buttonGroup {
+  display: flex; 
+  justify-content: space-between;
+}
+
+.buttonGroup button {
+  margin: 0px 10px 0px 10px;
+}
+
+.buttonGroup button:last-child {
+  margin-left: 100px; 
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 9px;
+  border: 5px solid white;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b364f5;
+  background-clip: padding-box;
+
+}
+
+::-webkit-scrollbar-track {
+  background-color: #371888;
+}
+/* Buttons */
+::-webkit-scrollbar-button:single-button {
+  background-color: #371888;
+  display: block;
+  border-style: solid;
+  height: 13px;
+  width: 16px;
+}
+/* Up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #b364f5 transparent;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+  border-color: transparent transparent #b364f5 transparent;
+}
+/* Down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: #b364f5 transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:vertical:single-button:increment:hover {
+  border-color: #b364f5 transparent transparent transparent;
 }
