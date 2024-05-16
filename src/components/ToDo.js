@@ -7,21 +7,24 @@ export const ToDo = () => {
   const [taskMade, setTaskMade] = useState([]);
 
   useEffect(() => {
-    const savedTask = JSON.parse(localStorage.getItem("taskMade")) || [];
-    setTaskMade(savedTask);
+    setTaskMade(JSON.parse(localStorage.getItem("taskMade")) || []);
   }, []);
     
   const addTarea = (taskParameter) => {
-    setTaskMade([
+    const newList =[
       ...taskMade,
       { id: uuidv4(), task: taskParameter, done: false },
-    ]);
-    localStorage.setItem("taskMade", JSON.stringify(taskMade));
+    ];
+
+    setTaskMade(newList);
+    localStorage.setItem("taskMade", JSON.stringify(newList));
   };
+
   const deleteAllTaskMade = (id) => {
     setTaskMade([]);
     localStorage.removeItem("taskMade");
   }
+
   const checkedTask = (id) => {
     const updatedTasks = taskMade.map((task) =>
       task.id === id ? { ...task, done: !task.done } : task
@@ -29,6 +32,7 @@ export const ToDo = () => {
     setTaskMade(updatedTasks);
     localStorage.setItem("taskMade", JSON.stringify(updatedTasks));
   }
+
   const deleteCompleted = () => {
     const updatedTasks = taskMade.filter((task) => !task.done);
     setTaskMade(updatedTasks);
